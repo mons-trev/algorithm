@@ -1,7 +1,6 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include<cstring>
 using namespace std;
 
 int tar;
@@ -13,12 +12,11 @@ vector<int> cap; // 누를 수 있는 버튼들
 vector<int> list;
 
 void search(string s) { // 재귀를 이용한 완전탐색
-	string ss = s;
-	int size = ((int)(ss.size()) - (int)(target.size()));
+	int size = ((int)(s.size()) - (int)(target.size()));
 	
-	if (ss!="" && (stoi(ss) > 1000000 || size > 1  || ss.size()>6 || (s[0]=='0'&&s.size()>1) )) return;
-	if ((s!= "") && s.size() + abs(stoi(ss) - tar) < minn) {
-		minn = s.size() + abs(stoi(ss) - tar);
+	if (s!="" && (stoi(s) > 1000000 || size > 1  || s.size()>6 || (s[0]=='0'&&s.size()>1) )) return;
+	if ((s!= "") && s.size() + abs(stoi(s) - tar) < minn) {
+		minn = s.size() + abs(stoi(s) - tar);
 	}
 	//cout << s << endl;
 	for (int i = 0; i < cap.size(); ++i) {
