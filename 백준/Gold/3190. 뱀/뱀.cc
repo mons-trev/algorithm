@@ -4,40 +4,40 @@
 
 using namespace std;
 
-int n;
-int an; // apple num
-int dn; // direction num
-int g[101][101];
-int snake[101][101];
-vector<pair<int, char>> d;
-pair<int, int> direction[4] = { {0,1}, {1,0}, {0,-1}, {-1,0} };
+short n;
+short an; // apple num
+short dn; // direction num
+bool g[101][101];
+bool snake[101][101];
+vector<pair<short, char>> d;
+pair<short, short> direction[4] = { {0,1}, {1,0}, {0,-1}, {-1,0} };
 int main() {
 	cin >> n;
 	cin >> an;
-	for (int i = 0; i < an; ++i) {
-		int y, x;
+	for (short i = 0; i < an; ++i) {
+		short y, x;
 		cin >> y >> x;
 		g[y][x] = 1; // 1으로 된 곳이 사과가 있는 곳
 	}
 	cin >> dn;
-	for (int i = 0; i < dn; ++i) {
-		int c; char dir;
+	for (short i = 0; i < dn; ++i) {
+		short c; char dir;
 		cin >> c >> dir;
 		d.push_back({ c,dir });
 	}
 
-	deque<pair<int, int>> s;
+	deque<pair<short, short>> s;
 	s.push_back({ 1,1 }); // 뱀의 첫 길이는 1 즉 그래프 한 칸
-	int d_n = 0;
-	int cnt = 0;
+	short d_n = 0;
+	short cnt = 0;
 	while (true) {
 		cnt++; // 시간 1초 경과
-		int dy = direction[d_n].first;		
-		int dx = direction[d_n].second;
-		int y = s.front().first; // 뱀의 머리 확인
-		int x = s.front().second;
-		int ny = y + dy;
-		int nx = x + dx;
+		short dy = direction[d_n].first;		
+		short dx = direction[d_n].second;
+		short y = s.front().first; // 뱀의 머리 확인
+		short x = s.front().second;
+		short ny = y + dy;
+		short nx = x + dx;
 		if (ny > n || nx > n || ny <1 || nx <1) {//벽 만남
 			cout << cnt;
 			return 0;
