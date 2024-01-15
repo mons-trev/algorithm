@@ -1,6 +1,5 @@
-#include<iostream>
+#include<stdio.h>
 #include<math.h>
-#include<cstring>
 using namespace std;
 
 bool ch[1000001];
@@ -19,13 +18,13 @@ void era() {
 }
 
 int main() {
-	cin >> m >> n;
-	memset(ch, false, 1000001 * sizeof(bool));
+	scanf("%d %d", &m, &n);
+	//memset(ch, false, 1000001 * sizeof(bool));
 	era();
 
 	for (int i = m; i <= n; ++i) {
 		if (!ch[i]) {
-			cout << i << "\n";
+			printf("%d\n", i);
 		}
 	}
 }
