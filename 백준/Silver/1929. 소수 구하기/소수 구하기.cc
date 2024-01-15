@@ -1,14 +1,12 @@
 #include<stdio.h>
-#include<math.h>
 using namespace std;
 
 bool ch[1000001];
 int m, n;
 
 void era() {
-	int n = sqrt(1000001);
 	ch[0] = ch[1] = true;
-	for (int i = 2; i < n; ++i) {
+	for (int i = 2; i*i < 1000001; ++i) {
 		if (!ch[i]) {
 			for (int j = i * i; j < 1000001; j = i + j) {
 				ch[j] = true;
