@@ -1,11 +1,7 @@
 #include<iostream>
-//#include<Windows.h>
 using namespace std;
 
 int n;
-//북동남서
-int dy[] = { -1,0,1,0 };
-int dx[] = { 0, 1,0,-1 };
 int maxx = 0;
 bool check[21][21];
 //상하좌우 백트래킹
@@ -204,21 +200,7 @@ void backtracking(int d, int cnt, int g[21][21]) { //이전에 온 값을 g에 �
 				}
 			}
 		}
-		/*
-		//Sleep(500);
-		if (cnt <= 1) {
-			cout << cnt << " " << d << endl;
-
-			for (int i = 1; i <= n; ++i) {
-				for (int j = 1; j <= n; ++j) {
-					cout << gg[i][j] << "  ";
-				}
-				cout << "\n\n";
-			}
-			cout << "\n";
-		}
-		*/
-	for (int i = 3; i >= 0; --i) {
+	for (int i = 0; i < 4; ++i) {
 		backtracking(i, cnt + 1, gg);
 	}
 	return;
