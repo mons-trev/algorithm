@@ -1,7 +1,5 @@
-#include<iostream>
+#include<stdio.h>
 #include<vector>
-#include<cstring>
-#include<math.h>
 using namespace std;
 
 vector<long long> prime; //소수
@@ -10,7 +8,6 @@ bool check[4000001];
 long long n;
 
 void era() {
-	//int nn = sqrt(4000001);
 	int cut = 0;
 	for (long long i = 2; i*i <= 4000001; ++i) {
 		if (!check[i]) {
@@ -36,7 +33,7 @@ void era() {
 }
 
 int main() {
-	cin >> n;
+	scanf("%d", &n);
 	
 	era(); // 에라토스테네스 체로 소수 만들기
 	
@@ -44,10 +41,10 @@ int main() {
 
 	if (n < 4) { // 2,3,4이 들어오면 경우의 수가 없으므로 0 리턴
 		if (n == 1) {
-			cout << 0;
+			printf("0");
 			return 0;
 		}
-		cout << 1;
+		printf("1");
 		return 0;
 	}
 	
@@ -72,7 +69,6 @@ int main() {
 	else {
 		sum = dp[right] - dp[left - 1];
 	}
-	//cout << left << " " << right << " " << sum << endl;
 	while (left<right) {
 		
 		if (sum == n) {
@@ -94,5 +90,5 @@ int main() {
 		}
 	}
 	if (!check[n]) ans++;
-	cout << ans;
+	printf("%d", ans);
 }
