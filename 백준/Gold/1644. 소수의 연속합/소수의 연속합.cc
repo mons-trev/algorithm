@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-vector<long long> prime; //소수
+vector<int> prime; //소수
 vector<long long> dp; //누적합
 bool check[4000001];
 long long n;
