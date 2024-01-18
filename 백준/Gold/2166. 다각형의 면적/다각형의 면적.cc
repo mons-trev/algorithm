@@ -1,4 +1,5 @@
-#include<iostream>
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
 #include<vector>
 #include<algorithm>
 #include<cmath>
@@ -22,14 +23,12 @@ long double shoe(){
 }
 
 int main() {
-	cin >> n;
+	scanf("%d", &n);
 	for (int i = 0; i < n; ++i) {
 		long double tmp1; long double tmp2;
-		cin >> tmp1 >> tmp2;
+		scanf("%Lf %Lf", &tmp1, &tmp2);
 		y.push_back(tmp1);
 		x.push_back(tmp2);
 	}
-	cout << fixed;
-	cout.precision(1);
-	cout << shoe();
+	printf("%0.1Lf", shoe());
 }
