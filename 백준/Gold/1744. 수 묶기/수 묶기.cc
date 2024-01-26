@@ -1,4 +1,4 @@
-#include<iostream>
+#include<stdio.h>
 #include<vector>
 #include<algorithm>
 
@@ -11,10 +11,10 @@ int one = 0;
 int zero=0;
 
 int main() {
-	cin >> n;
+	scanf("%d", &n);
 	for (int i = 0; i < n; ++i) {
 		int tmp;
-		cin >> tmp;
+		scanf("%d", &tmp);
 		if (tmp > 0) {
 			if (tmp == 1) {
 				one++;
@@ -56,5 +56,5 @@ int main() {
 		sum += p[0];
 	}
 	sum += one;
-	cout << sum;
+	printf("%d", sum);
 }
