@@ -4,11 +4,11 @@
 
 using namespace std;
 
-int n;
+short n;
 vector<int> m;
 vector<int> p;
-int one = 0;
-int zero=0;
+short one = 0;
+short zero=0;
 
 int main() {
 	scanf("%d", &n);
@@ -33,7 +33,7 @@ int main() {
 	sort(m.begin(), m.end());
 	sort(p.begin(), p.end());
 	
-	long long sum = 0;
+	int sum = 0;
 
 	for (int i = 0; i < m.size(); ) {
 		if (i + 1 < m.size()) {
