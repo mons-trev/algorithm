@@ -5,7 +5,6 @@
 using namespace std;
 
 struct Node {
-	short label;
 	vector<pair<Node*, short>> child; // 자식 노드, 가중치
 };
 
@@ -36,15 +35,12 @@ int main() {
 	//트리 생성
 	for (short i = 0; i < 10001; ++i) {
 		tree[i] = new Node();
-		tree[i]->label = i;
 	}
 	tree[1] = new Node();
-	tree[1]->label = 1;
 	for (short i = 0; i < n-1; ++i) {
 		short p, c, d;//부모 라벨, 자식 라벨, 가중치
 		scanf("%d %d %d", &p, &c, &d);
 		tree[p]->child.push_back({ tree[c],d });
-		
 	}
 
 	findmax(tree[1]);
