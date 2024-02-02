@@ -6,9 +6,9 @@
 
 using namespace std;
 
-int g[130][130];
-bool v[130][130];
-int cul[130][130];
+int g[125][125];
+bool v[125][125];
+int cul[125][125];
 int dy[] = { 0,0,1,-1 };
 int dx[] = { 1,-1,0,0 };
 
@@ -23,7 +23,6 @@ int main() {
 				scanf("%d", &g[i][j]);
 			}
 		}
-		memset(v, false, sizeof(v));
 		for (int i = 0; i < n; ++i) {
 			for (int j = 0; j < n; ++j) {
 				cul[i][j] = MAX;
@@ -50,7 +49,7 @@ int main() {
 				}	
 		}
 		printf("Problem %d: %d\n", t, cul[n-1][n-1]);
-		
+		memset(v, false, sizeof(v));
 		t++;
 	}
 }
