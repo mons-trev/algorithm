@@ -3,11 +3,10 @@
 
 using namespace std;
 
-
 long long n;
-map <long long, long long> m;
+map <long long, long> m;
 
-long long fibo(long long a) {
+long fibo(long long a) {
 	if (m[a]) {
 		return m[a];
 	}
