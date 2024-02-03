@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 long long n;
 map <long long, long long> m;
 
@@ -26,8 +27,6 @@ int main() {
 	m[2] = 1;
 	m[3] = 1;
 	m[4] = 2;
-	m[5] = 3;
-	m[6] = 5;
 	
 	cout << fibo(n+1);
 }
