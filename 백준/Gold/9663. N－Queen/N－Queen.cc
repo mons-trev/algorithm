@@ -1,5 +1,4 @@
 #include<iostream>
-#include<unordered_set>
 
 using namespace std;
 
@@ -7,7 +6,7 @@ int n;
 
 bool vcol[15] = { false, };
 bool vrd[30] = { false, };
-bool vld[60] = { false, };
+bool vld[31] = { false, };
 int ans = 0;
 
 void bt(int idx) {
