@@ -1,4 +1,4 @@
-#include<iostream>
+#include<stdio.h>
 #include<map>
 
 using namespace std;
@@ -22,11 +22,11 @@ long long fibo(long long a) {
 }
 
 int main() {
-	cin >> n;
+	scanf("%lld", &n);
 	m[1] = 0;
 	m[2] = 1;
 	m[3] = 1;
 	m[4] = 2;
-	
-	cout << fibo(n+1);
+	m[5] = 3;
+	printf("%lld",fibo(n+1));
 }
