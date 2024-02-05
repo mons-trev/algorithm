@@ -1,8 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<iostream>
 #include<stack>
-#include<string>
 using namespace std;
 
 long long list[500000];
@@ -42,7 +40,6 @@ int main() {
 			ans++;
 		}
 		s.push({ x,same });
-		//cout << x << " " << ans << endl;
 	}
 	printf("%lld", ans);
 }
