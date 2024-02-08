@@ -23,7 +23,6 @@ void makenet(int yy, int xx) {
 		int y = q.front().first;
 		int x = q.front().second;
 		q.pop();
-		
 		for (int i = 0; i < 4; ++i) {
 			int ny = y + dy[i];
 			int nx = x + dx[i];
@@ -107,6 +106,7 @@ int main() {
 						q.push({ -(cc + 1), {ny, nx} });
 						vector<int> p;
 						p.push_back(c * (ny - 1) + nx);
+                        netv[c * (ny - 1) + nx] = true;
 						for (int k = 0; k < 4; ++k) {
 							int ky = ny + dy[k];
 							int kx = nx + dx[k];
@@ -118,7 +118,6 @@ int main() {
 								}
 							}
 						}
-						netv[c * (ny - 1) + nx] = true;
 						sort(p.begin(), p.end());
 						for (int i = 1; i < p.size(); ++i) {
 							net[p[i]] = p[0];
@@ -126,7 +125,7 @@ int main() {
 					}
 			}
 		}
-		
+        
 		if (find(net[c * (v[0].first - 1) + v[0].second]) == find(net[c * (v[1].first - 1) + v[1].second])) {
 			cout << t;
 			return 0;
