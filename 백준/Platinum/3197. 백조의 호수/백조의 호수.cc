@@ -8,7 +8,6 @@ using namespace std;
 
 int r, c;
 char g[1501][1501];
-bool visit[1501][1501];
 int net[1500 * 1500 + 1];
 bool netv[1500 * 1500 + 1];
 
@@ -128,16 +127,7 @@ int main() {
 					}
 			}
 		}
-		/*
-		for (int i = 1; i <= r; ++i) {
-			for (int j = 1; j <= c; ++j) {
-				cout << g[i][j] << " ";
-			}
-			cout << endl;
-		}
-		*/
-
-		//cout << find(net[c * (v[0].first - 1) + v[0].second]) << " " << find(net[c * (v[1].first - 1) + v[1].second]) << "\n";
+		
 		if (find(net[c * (v[0].first - 1) + v[0].second]) == find(net[c * (v[1].first - 1) + v[1].second])) {
 			cout << t;
 			return 0;
