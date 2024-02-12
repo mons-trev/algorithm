@@ -15,7 +15,6 @@ int main() {
 
 	vector<int> list;
 
-	vector<pair<int, int>> f;
 
 	for (int i = 0; i < n; ++i) {
 		int tmp; cin >> tmp;
@@ -23,11 +22,7 @@ int main() {
 	}
 	int m;
 	cin >> m;
-	for (int i = 0; i < m; ++i) {
-		int a, b; cin >> a >> b;
-		f.push_back({ min(a, b), max(a, b) });
-	}
-
+	
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
 			if (i == j) {
@@ -57,16 +52,10 @@ int main() {
 				y++; x++;
 			}
 		}
-		/*
-		for (int i = 0; i < n; ++i) {
-			for (int j = 0; j < n; ++j) {
-				cout << dp[i][j];
-			}
-			cout << "\n";
-		}
-		*/
 	for (int i = 0; i < m; ++i) {
-		cout << dp[f[i].first-1][f[i].second-1] << "\n";
+		int a, b; cin >> a >> b;
+		//f.push_back({ min(a, b), max(a, b) });
+		cout << dp[a-1][b-1] << "\n";
 	}
 	
 }
