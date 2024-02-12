@@ -20,8 +20,6 @@ int main() {
 		int tmp; cin >> tmp;
 		list.push_back(tmp);
 	}
-	int m;
-	cin >> m;
 	
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
@@ -52,9 +50,12 @@ int main() {
 				y++; x++;
 			}
 		}
+
+	int m;
+	cin >> m;
+
 	for (int i = 0; i < m; ++i) {
 		int a, b; cin >> a >> b;
-		//f.push_back({ min(a, b), max(a, b) });
 		cout << dp[a-1][b-1] << "\n";
 	}
 	
