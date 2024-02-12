@@ -1,61 +1,72 @@
-#include <iostream>
+#include<iostream>
 #include<vector>
 
 using namespace std;
 
-int n,m;
-int list[2001];
-vector<pair<int, int>> v;
-int dp[2001][2001];
-
+bool dp[2001][2001];
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
+
+	int n;
 	cin >> n;
-	for (int i = 1; i <= n; ++i) {
-		cin >> list[i];
+
+	vector<int> list;
+
+	vector<pair<int, int>> f;
+
+	for (int i = 0; i < n; ++i) {
+		int tmp; cin >> tmp;
+		list.push_back(tmp);
 	}
+	int m;
 	cin >> m;
 	for (int i = 0; i < m; ++i) {
 		int a, b; cin >> a >> b;
-		v.push_back({ min(a,b),max(a,b) });
+		f.push_back({ min(a, b), max(a, b) });
 	}
-	for (int i = 0; i < m; ++i) {
-		int f, t;
-		f = v[i].first; t = v[i].second;
-		bool flg = false;
-		while (f < t) {
-			if (dp[f][t] == -1) {
-				cout << 0 << "\n";
-				flg = true;
-				dp[v[i].first][v[i].second] = -1;
-				break;
+
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (i == j) {
+				dp[i][j] = true;
 			}
-			else if (dp[f][t] == 1) {
-				cout << 1 << "\n";
-				dp[v[i].first][v[i].second] = 1;
-				flg = true;
-				break;
-			}
-			else {
-				if (list[f] != list[t]) {
-					dp[f][t] = -1;
-					flg = true;
-					cout << 0 << "\n";
-					dp[v[i].first][v[i].second] = -1;
-					break;
+			else if (j - i == 1) {//길이가 2라면
+				if (list[j] == list[i]) {
+					dp[i][j] = true;
 				}
 				else {
-					f++;
-					t--;
+					dp[i][j] = false;
 				}
 			}
 		}
-		if (!flg) {
-			dp[v[i].first][v[i].second] = 1;
-			cout << 1 << "\n";
-		}
+
 	}
+		for (int j = 2; j < n; ++j) {
+			int y = 0; int x = j;
+			while (true) {
+				if (y >= n || x >= n) break;
+				if (list[y] == list[x]) {
+					dp[y][x] = dp[y + 1][x - 1];
+				}
+				else {
+					dp[y][x] = false;
+				}
+				y++; x++;
+			}
+		}
+		/*
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				cout << dp[i][j];
+			}
+			cout << "\n";
+		}
+		*/
+	for (int i = 0; i < m; ++i) {
+		cout << dp[f[i].first-1][f[i].second-1] << "\n";
+	}
+	
 }
