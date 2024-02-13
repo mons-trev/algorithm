@@ -1,7 +1,6 @@
 #include <iostream>
 #include<vector>
 #include<stack>
-#include<cmath>
 using namespace std;
 
 vector<long long> list;
