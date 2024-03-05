@@ -3,8 +3,9 @@
 
 using namespace std;
 
-char check[25]; // 방문되지 않았으면 . 으로 초기화
-bool al[25] = { false, };
+
+char check[26]; // 방문되지 않았으면 . 으로 초기화
+bool al[26] = { false, };
 
 int main() {
 	int n, k; cin >> n >> k;
@@ -16,6 +17,7 @@ int main() {
 		check[i] = '?';
 	}
 	vector<pair<int, char>> v;
+	
 	for (int i = 0; i < k; ++i) {
 		int a; char b;
 		cin >> a >> b;
@@ -24,8 +26,7 @@ int main() {
 	for (int i = 0; i < k; ++i) {
 		int a = v[i].first;
 		char b = v[i].second;
-		cur = prev+ a;
-		cur %= n;
+		cur = (prev - a%n + n) % n;
 		prev = cur;
 		if (check[cur] == '?') {
 			if (al[b - 'A']) {
@@ -44,13 +45,12 @@ int main() {
 			return 0;
 		}
 	}
-	//0 1 2 3 4
-	//  A  
+	 
 	cnt = 0;
 	while (cnt<n) {
 		cnt++;
 		cout << check[cur];
-		cur=cur-1+n;
+		cur++;
 		cur %= n;
 	}
 }
