@@ -3,8 +3,8 @@
 
 using namespace std;
 
-char check[30]; // 방문되지 않았으면 . 으로 초기화
-bool al[50] = { false, };
+char check[25]; // 방문되지 않았으면 . 으로 초기화
+bool al[25] = { false, };
 
 int main() {
 	int n, k; cin >> n >> k;
@@ -24,16 +24,15 @@ int main() {
 	for (int i = 0; i < k; ++i) {
 		int a = v[i].first;
 		char b = v[i].second;
-		
 		cur = prev+ a;
 		cur %= n;
 		prev = cur;
 		if (check[cur] == '?') {
-			if (al[b - '0']) {
+			if (al[b - 'A']) {
 				cout << "!";
 				return 0;
 			}
-			al[b - '0'] = true;
+			al[b - 'A'] = true;
 			cnt++;
 			check[cur] = b;
 		}
