@@ -6,59 +6,42 @@
 using namespace std;
 
 int solution(string s) {
-    int answer = 1001;
+    if(s.size()==1) {
+        return 1;
+    }
+    int answer=1001;
+    string ans="";
     
-    if(s.size()==1) return 1;
-        
     for(int i=1; i<=s.size()/2; ++i) {
-        stack<string> st;
+        string prev=s.substr(0,i); // 0번째부터 i만큼 자른다
+        int cnt=1;
         string per="";
-        st.push(s.substr(0,i));
-
-        for(int j=i; j<s.size(); j+=(i)) {
-            
-            string prev=st.top();
-            string now = s.substr(j,i);
+        for(int j=i; j<s.size(); j+=i) {
+            string now = s.substr(j, i);
             if(prev==now) {
-                st.push(now);
+                cnt++;
             }
-            else {
-                int cnt = 0;
-                while(!st.empty()){
-                    st.pop();
-                    cnt++;
-                }
+            else { // 다르면 이전거 붙여줘야 함
                 if(cnt==1) {
                     per+=prev;
                 }
                 else {
-                    per+=to_string(cnt);
-                    per+=prev;
+                    per+=(to_string(cnt)+prev);
+                    cnt=1;
                 }
-                st.push(now);
             }
+            prev=now;
         }
-        int cnt=0;
-        string p="";
-        while(!st.empty()) {
-            p=st.top();
-            st.pop();
-            cnt++;
-        }
-        if(cnt==0) {
-            continue;
-        }
-        else if(cnt==1) {
-            per+=p;
+        if(cnt==1) {
+            per+=prev;
         }
         else {
-            per+=to_string(cnt);
-            per+=p;
+            per+=(to_string(cnt)+prev);
         }
         if(per.size()<answer) {
             answer=per.size();
+            ans=per;
         }
     }
-    
     return answer;
 }
