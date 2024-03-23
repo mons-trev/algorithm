@@ -7,16 +7,6 @@ using namespace std;
 int g[9][9];
 vector<pair<int, int>> zeros;
 
-void draw() {
-	for (int i = 0; i < 9; ++i) {
-		for (int j = 0; j < 9; ++j) {
-			cout << g[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	cout << "\n";
-}
-
 bool check(int a, int y, int x) {
 	for (int i = 3 * (y / 3); i < 3 * (y / 3) + 3; ++i) {
 		for (int j = 3 * (x / 3); j < 3 * (x / 3) + 3; ++j) {
@@ -38,7 +28,7 @@ bool check(int a, int y, int x) {
 }
 
 bool back(int idx) {
-	//draw();
+
 	if (idx >= zeros.size()) return true;
 	int y = zeros[idx].first;
 	int x = zeros[idx].second;
@@ -52,7 +42,7 @@ bool back(int idx) {
 			g[y][x] = 0;
 		}
 	}
-	g[y][x] = 0;
+	//g[y][x] = 0;
 	return false;
 }
 
