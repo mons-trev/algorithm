@@ -22,8 +22,7 @@ int dfs(int from) {
 			if (i == from) continue; // 자기를 참조할 때는 건너뜀
 			if (graph[from][i] == 1 && !visited[from][i]) { // 연결이 되어있고, 참조하지 않은 사람이라면 dfs
 				visited[from][i] = visited[i][from] = true;
-				ret = dfs(i);
-				if (ret > 0) break;
+				ret = max(ret, dfs(i));
 			}
 		}
 	}
