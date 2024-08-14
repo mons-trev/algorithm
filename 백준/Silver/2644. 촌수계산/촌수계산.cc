@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int graph[101][101] = {0,}; // 자동으로 0으로 초기화
-int visited[101][101] = {false, }; // 자동으로 false 로 초기화
+int graph[101][101] = {0,}; // 그래프
+int visited[101] = {false, }; // 방문 여부
 int p1, p2; // 촌수를 계산해야하는 서로 다른 두 사람의 번호
 
 int n; //전체 사람의 수
@@ -19,9 +19,11 @@ int dfs(int from) {
 
 	else {
 		for (int i = 1; i <= n; ++i) {
-			if (i == from) continue; // 자기를 참조할 때는 건너뜀
-			if (graph[from][i] == 1 && !visited[from][i]) { // 연결이 되어있고, 참조하지 않은 사람이라면 dfs
-				visited[from][i] = visited[i][from] = true;
+			if (i == from) {
+				continue; // 자기를 참조할 때는 건너뜀
+			}
+			if (graph[from][i] == 1 && !visited[i]) { // 사람이 연결 되어있고, 참조하지 않은 사람이라면 dfs 함수 호출
+				visited[i] = true;
 				ret = max(ret, dfs(i));
 			}
 		}
