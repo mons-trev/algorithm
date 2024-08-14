@@ -1,8 +1,5 @@
 #include<iostream>
-#include<stdio.h>
 #include<vector>
-#include<cmath>
-#include<cstring>
 #include<queue>
 #define INF 9876543
 using namespace std;
@@ -11,7 +8,8 @@ vector<pair<int, int>> list[20001];
 int main() {
 	int v, e;
 	cin >> v >> e;
-	int des; cin >> des;
+	int des; 
+    cin >> des;
 	int dp[20001];
 	bool visit[20001] = { false, };
 	for (int i = 0; i < e; ++i) {
@@ -25,8 +23,8 @@ int main() {
 	priority_queue<pair<int, int>> q;
 	q.push({ 0, des });
 	dp[des] = 0;
-	//visit[des] = true;
-	while (!q.empty()) {
+
+    while (!q.empty()) {
 		int now = q.top().second;
 		int dis = -q.top().first;
 		if (visit[now]) {
@@ -48,10 +46,10 @@ int main() {
 		}
 	for (int i = 1; i <= v; ++i) {
 		if (dp[i] == INF) {
-			printf("INF\n");
+			cout << "INF\n";
 		}
 		else {
-			printf("%d\n", dp[i]);
+			cout << dp[i] << "\n";
 		}
 	}
 }
