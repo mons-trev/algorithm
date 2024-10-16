@@ -9,7 +9,7 @@ def decomsum(n) :
         num+=1
         tmp=tmp//10
     
-    for i in range(n-num*9, n-num+1) : # 최대 18*9 = 162번
+    for i in range(n-num*9, n) : # 최대 18*9 = 162번
         
         tmpans=i
         tmp2= i
