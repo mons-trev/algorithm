@@ -7,7 +7,7 @@ def find(f,e) :
             continue
         if i>=f :
             print(i)
-        for j in range(i*2, e+1, i) :
+        for j in range(i**2, e+1, i) :
             era[j]=1
             
 find(f,e)
